@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Report Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        body.dark {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+
+        .container {
+            padding: 0 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 10rem;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        body.dark .logo {
+            color: #3b82f6;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        .dark-mode-toggle {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333333;
+        }
+
+        body.dark .dark-mode-toggle {
+            color: #3b82f6;
+        }
+
+        .download-btn {
+            margin-left: 2rem;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10rem;
+        }
+
+        .hero-content {
+            width: 100%;
+            display: flex;
+            text-align: start;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            color: #3b82f6;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        body.dark .hero-subtitle {
+            color: #d1d5db;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            line-height: 2;
+            color: #4b5563;
+            max-width: 36rem;
+            margin: 1.25rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero-description {
+                font-size: 1.25rem;
+            }
+        }
+
+        body.dark .hero-description {
+            color: #9ca3af;
+        }
+
+        .school-logo {
+            width: 32rem;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .school-logo {
+                width: 38rem;
+            }
+        }
+
+        .school-logo img {
+            width: 80%;
+            height: auto;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 2.5rem 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        body.dark .section-title {
+            color: #3b82f6;
+        }
+
+        .section-description {
+            text-align: center;
+            font-size: 1rem;
+            line-height: 2;
+            color: #4b5563;
+            margin-bottom: 10rem;
+        }
+
+        body.dark .section-description {
+            color: #9ca3af;
+        }
+
+        .highlight {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        body.dark .feature-card {
+            background-color: #1e40af;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        body.dark .feature-icon {
+            color: #ffffff;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin: 2rem 0 0.5rem;
+            color: #1f2937;
+        }
+
+        body.dark .feature-title {
+            color: #ffffff;
+        }
+
+        .feature-description {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        body.dark .feature-description {
+            color: #d1d5db;
+        }
+
+        .tools-title {
+            color: #3b82f6;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        body.dark .tools-title {
+            color: #ffffff;
+        }
+
+        .tool-name {
+            color: #4b5563;
+        }
+
+        body.dark .tool-name {
+            color: #9ca3af;
+        }
+
+        /* Reports Section */
+        .reports-section {
+            padding: 2.5rem 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .report-card {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 6rem;
+        }
+
+        .report-card:nth-child(odd) {
+          flex-direction: column-reverse;
+        }
+
+
+
+        @media (min-width: 768px) {
+            .report-card {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .report-card:nth-child(odd) {
+              flex-direction: row;
+            }
+
+        }
+
+        .report-image {
+            flex-basis: 100%;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .report-image {
+                flex-basis: 50%;
+                margin-bottom: 0;
+                padding: 0 2.5rem;
+            }
+        }
+
+        .report-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        .report-content {
+            flex-basis: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .report-content {
+                flex-basis: 50%;
+                padding: 0 2.5rem;
+            }
+        }
+
+        .report-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin: 1rem 0 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .report-title {
+                margin-top: 0;
+            }
+        }
+
+        body.dark .report-title {
+            color: #3b82f6;
+        }
+
+        .report-description {
+            color: #4b5563;
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+
+        body.dark .report-description {
+            color: #9ca3af;
+        }
+
+        .view-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, #3b82f6, #1f2937);
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3b82f6;
+            color: white;
+            padding: 1.75rem 2.5rem;
+            margin-top: 7rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body.dark footer {
+            background-color: #1e40af;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-tech {
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-highlight {
+            font-weight: 600;
+            color: white;
+            margin: 0 0.25rem;
+        }
+
+        body.dark .tech-highlight {
+            color: #3b82f6;
+        }
+
+        .footer-credits {
+            font-size: 0.875rem;
+            color: #e2e8f0;
+            margin-top: 0.5rem;
+        }
+
+        .footer-love {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+        }
+
+        .heart-icon {
+            color: #ec4899;
+            margin: 0 0.5rem;
+        }
+
+        .made-by {
+            font-weight: 600;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 2rem;
+            font-size: 2rem;
+            padding-top: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-social {
+                padding-top: 0;
+            }
+        }
+
+        .social-icon {
+            color: white;
+            text-decoration: none;
+        }
+
+        body.dark .social-icon {
+            color: #3b82f6;
+        }
+
+        /* Placeholder for report images */
+        .placeholder {
+            background-color: #e5e7eb;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 0.5rem;
+            position: relative;
+        }
+
+
+        body.dark .placeholder {
+            background-color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <nav>
+                <h1 class="logo">MyNilai</h1>
+                <ul class="nav-links">
+                    <li>
+                        <i id="darkModeToggle" class="fas fa-moon dark-mode-toggle"></i>
+                    </li>
+            </nav>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Dashboard Akademik - MyNilai</h2>
+                    <h3 class="hero-subtitle">Pantau Nilai dan Perkembangan Siswa dengan Mudah</h3>
+                    <p class="hero-description">
+                        Temukan kemudahan dalam memantau nilai siswa dan perkembangan akademik mereka melalui dashboard interaktif kami. Dengan visualisasi yang jelas, orang tua dan guru dapat melihat kinerja siswa dalam berbagai mata pelajaran dan memantau progres secara real-time. Cek bagaimana siswa kami berkembang dan capai potensi terbaik mereka!
+                    </p>
+                </div>
+                <div class="school-logo">
+                <img src="./img/hero-img.png" alt="School Logo">
+            </div>
+            </div>
+
+        </section>
+
+       <section class="features-section">
+            <h3 class="section-title">Highlights MyNilai</h3>
+            <p class="section-description">
+                Sistem rapot digital kami menyediakan pelaporan yang jelas dan terperinci tentang perkembangan akademik siswa, dengan fokus pada
+                <span class="highlight">aksesibilitas data</span>,
+                <span class="highlight">transparansi informasi</span>, dan
+                <span class="highlight">analisis kinerja siswa</span> yang mendalam sepanjang tahun ajaran.
+            </p>
+            <div class="features-grid">
+                <!-- Highlight 1: Fitur Manajemen Data Siswa -->
+                <div class="feature-card">
+                    <i class="fas fa-users feature-icon"></i> <!-- Ikon untuk Manajemen Data Siswa -->
+                    <h3 class="feature-title">Fitur Manajemen Data Siswa</h3>
+                    <p class="feature-description">
+                        Sistem rapot ini memungkinkan guru dan staf sekolah untuk mengelola data siswa secara terpusat dan efisien. Dengan fitur pencarian dan filter yang canggih, pengelolaan data seperti nilai, absensi, dan informasi pribadi siswa menjadi lebih mudah dan cepat.
+                    </p>
+                    <h4 class="tools-title">Manajemen Data</h4>
+                    <p class="tool-name">Profil Siswa, Riwayat Akademik</p>
+                </div>
+
+                <!-- Highlight 2: Visualisasi Nilai Siswa -->
+                <div class="feature-card">
+                    <i class="fas fa-chart-bar feature-icon"></i> <!-- Ikon untuk Visualisasi Nilai -->
+                    <h3 class="feature-title">Visualisasi Nilai Siswa</h3>
+                    <p class="feature-description">
+                        Dengan grafik dan diagram yang mudah dibaca, orang tua dan guru dapat dengan cepat memahami perkembangan nilai siswa. Visualisasi ini memungkinkan untuk melihat tren prestasi dan mengidentifikasi area yang membutuhkan perhatian lebih.
+                    </p>
+                    <h4 class="tools-title">Jenis Visualisasi</h4>
+                    <p class="tool-name">Grafik Nilai, Analisis Perkembangan</p>
+                </div>
+
+                <!-- Highlight 3: Import dan Export Excel untuk Guru -->
+                <div class="feature-card">
+                    <i class="fas fa-file-excel feature-icon"></i> <!-- Ikon untuk Import/Export Excel -->
+                    <h3 class="feature-title">Import dan Export Excel untuk Guru</h3>
+                    <p class="feature-description">
+                        Fitur import dan export Excel memudahkan guru dalam mengelola dan berbagi data nilai atau absensi siswa. Guru dapat dengan mudah mengimpor data hasil ujian dan mengekspor rapot dalam format Excel untuk distribusi atau keperluan arsip.
+                    </p>
+                    <h4 class="tools-title">Format Data</h4>
+                    <p class="tool-name">Excel (.xls), CSV</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="reports-section">
+          <section class="reports-section">
+              <h3 class="section-title">Laporan Unggulan</h3>
+              <p class="section-description">
+                  Jelajahi laporan terperinci kami tentang manajemen data siswa, visualisasi nilai, dan pengelolaan data untuk guru, semuanya dirancang untuk mengoptimalkan pelacakan akademik dan analisis kinerja.
+              </p>
+
+              <!-- Laporan 1: Fitur Manajemen Data Siswa -->
+              <div class="report-card">
+                  <div class="report-image">
+                      <div class="placeholder">
+                        <img src="./img/image-1.png" alt="">
+                      </div>
+                  </div>
+                  <div class="report-content">
+                      <h3 class="report-title">Ringkasan Manajemen Data Siswa</h3>
+                      <p class="report-description">
+                          Laporan ini memberikan pandangan mendalam tentang bagaimana data siswa dikelola secara efisien dalam sistem. Laporan ini mencakup pelacakan absensi, nilai, rincian pribadi, dan riwayat akademik. Pelajari bagaimana manajemen data terpusat menyederhanakan tugas administratif dan memastikan integritas data.
+                      </p>
+
+                  </div>
+              </div>
+
+              <!-- Laporan 2: Visualisasi Nilai Siswa -->
+              <div class="report-card report-card-2">
+                  <div class="report-content">
+                      <h3 class="report-title">Visualisasi Kinerja Siswa</h3>
+                      <p class="report-description">
+                          Jelajahi representasi visual terperinci tentang kinerja siswa di berbagai mata pelajaran. Laporan ini mencakup grafik, diagram, dan metrik pertumbuhan yang dengan jelas menunjukkan area kekuatan dan perbaikan untuk setiap siswa.
+                      </p>
+
+                  </div>
+                  <div class="report-image">
+                      <div class="placeholder">
+                         <img src="./img/image-2.png" alt="">
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Laporan 3: Import dan Export Excel untuk Guru -->
+              <div class="report-card">
+                  <div class="report-image">
+                      <div class="placeholder">
+                         <img src="./img/image-3.png" alt="">
+                      </div>
+                  </div>
+                  <div class="report-content">
+                      <h3 class="report-title">Import/Export Excel untuk Guru</h3>
+                      <p class="report-description">
+                          Laporan ini membahas fungsionalitas impor/ekspor yang mudah digunakan untuk guru, memungkinkan mereka untuk mengunggah nilai, absensi, dan data siswa lainnya dalam format Excel. Laporan ini juga menyoroti bagaimana guru dapat berbagi dan menyimpan laporan dengan efisien menggunakan format CSV dan Excel.
+                      </p>
+
+                  </div>
+              </div>
+
+          </section>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-tech">
+                        Built with
+                        <span class="tech-highlight">HTML</span> |
+                        <span class="tech-highlight">CSS</span> |
+                        <span class="tech-highlight">JavaScript</span>
+                    </div>
+                </div>
+                <div class="footer-love">
+                    Made with
+                    <i class="fas fa-heart heart-icon"></i>
+                    <span class="made-by">Kelompok Kerja Praktek - Universitas Pamulang</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark');
+            darkModeToggle.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+
+            // Update icon
+            if (body.classList.contains('dark')) {
+                darkModeToggle.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('darkMode', 'true');
+            } else {
+                darkModeToggle.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('darkMode', 'false');
+            }
+        });
+    </script>
+</body>
+</html>
