@@ -6,6 +6,9 @@
     <title>MyNilai Landing Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
     <style>
         * {
             margin: 0;
@@ -121,6 +124,13 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+            }
+        }
+
+
         .hero-subtitle {
             font-size: 1.5rem;
             margin: 0.5rem 0;
@@ -157,9 +167,16 @@
             align-items: center;
         }
 
+
         @media (min-width: 768px) {
             .school-logo {
                 width: 38rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .school-logo  {
+                width: auto;
             }
         }
 
@@ -167,6 +184,11 @@
             width: 80%;
             height: auto;
         }
+
+        .img-mobile {
+          width: 120px;
+        }
+
 
         /* Features Section */
         .features-section {
@@ -297,8 +319,6 @@
           flex-direction: column-reverse;
         }
 
-
-
         @media (min-width: 768px) {
             .report-card {
                 flex-direction: row;
@@ -308,7 +328,6 @@
             .report-card:nth-child(odd) {
               flex-direction: row;
             }
-
         }
 
         .report-image {
@@ -480,7 +499,6 @@
             position: relative;
         }
 
-
         body.dark .placeholder {
             background-color: #374151;
         }
@@ -488,136 +506,128 @@
 </head>
 <body>
     <div class="container">
-        <section class="hero">
-            <nav>
-                <h1 class="logo">MyNilai</h1>
-                <ul class="nav-links">
-                    <li>
-                        <i id="darkModeToggle" class="fas fa-moon dark-mode-toggle"></i>
-                    </li>
-            </nav>
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h2 class="hero-title">Dashboard Akademik - MyNilai</h2>
-                    <h3 class="hero-subtitle">Pantau Nilai dan Perkembangan Siswa dengan Mudah</h3>
-                    <p class="hero-description">
-                        Temukan kemudahan dalam memantau nilai siswa dan perkembangan akademik mereka melalui dashboard interaktif kami. Dengan visualisasi yang jelas, orang tua dan guru dapat melihat kinerja siswa dalam berbagai mata pelajaran dan memantau progres secara real-time. Cek bagaimana siswa kami berkembang dan capai potensi terbaik mereka!
-                    </p>
-                </div>
-                <div class="school-logo">
-                <img src="./img/hero-img.png" alt="School Logo">
-            </div>
-            </div>
+      <section class="hero">
+          <nav>
+              <h1 class="logo" data-aos="fade-right" data-aos-duration="800">MyEkskul</h1>
+              <ul class="nav-links">
+                  <li>
+                      <i id="darkModeToggle" class="fas fa-moon dark-mode-toggle" data-aos="fade-left" data-aos-duration="800"></i>
+                  </li>
+              </ul>
+          </nav>
+          <div class="hero-content">
+              <div class="hero-text" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                  <h2 class="hero-title">Sistem Absensi Ekstrakurikuler Berbasis QR Code</h2>
+                  <h3 class="hero-subtitle">Inovasi Kehadiran Ekstrakurikuler yang Cepat, Akurat, dan Modern</h3>
+                  <p class="hero-description">
+                      MyEkskul adalah solusi digital untuk mencatat absensi kegiatan ekstrakurikuler menggunakan teknologi QR Code. Siswa cukup melakukan scan QR saat hadir, dan data akan langsung terekam secara real-time. Sistem ini membantu pembina dalam mengelola kehadiran dengan lebih efisien, mengurangi human error, dan menyediakan laporan otomatis yang bisa diakses oleh guru maupun orang tua kapan saja.
+                  </p>
+              </div>
+              <div class="school-logo" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="400">
+                  <img src="./img/hero-img.png" alt="School QR Attendance Illustration">
+              </div>
+          </div>
+      </section>
 
-        </section>
 
        <section class="features-section">
-            <h3 class="section-title">Highlights MyNilai</h3>
-            <p class="section-description">
-                Sistem rapot digital kami menyediakan pelaporan yang jelas dan terperinci tentang perkembangan akademik siswa, dengan fokus pada
-                <span class="highlight">aksesibilitas data</span>,
-                <span class="highlight">transparansi informasi</span>, dan
-                <span class="highlight">analisis kinerja siswa</span> yang mendalam sepanjang tahun ajaran.
+          <h3 class="section-title" data-aos="fade-up" data-aos-duration="800">Fitur Unggulan MyEkskul</h3>
+          <p class="section-description" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              MyEkskul menghadirkan sistem absensi kegiatan ekstrakurikuler yang modern dan efisien melalui teknologi
+              <span class="highlight">QR Code</span>,
+              <span class="highlight">pengelolaan kehadiran otomatis</span>, serta
+              <span class="highlight">laporan real-time</span> yang memudahkan pembina, guru, dan orang tua.
+          </p>
+          <div class="features-grid">
+              <!-- Highlight 1: Absensi QR Code -->
+              <div class="feature-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
+                  <i class="fas fa-qrcode feature-icon"></i>
+                  <h3 class="feature-title">Absensi QR Code</h3>
+                  <p class="feature-description">
+                      Siswa cukup melakukan scan QR saat kegiatan dimulai untuk mencatat kehadiran. Sistem ini mencatat waktu dan data kehadiran secara otomatis, meminimalkan kecurangan dan mempercepat proses absensi.
+                  </p>
+                  <h4 class="tools-title">Teknologi</h4>
+                  <p class="tool-name">QR Scanner, Validasi Otomatis</p>
+              </div>
+
+              <!-- Highlight 2: Rekap dan Laporan Kehadiran -->
+              <div class="feature-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
+                  <i class="fas fa-clipboard-list feature-icon"></i>
+                  <h3 class="feature-title">Rekap dan Laporan Kehadiran</h3>
+                  <p class="feature-description">
+                      Sistem secara otomatis menghasilkan rekap bulanan dan tahunan yang bisa diakses oleh pembina dan kepala sekolah. Orang tua juga dapat melihat riwayat kehadiran anak mereka dengan mudah.
+                  </p>
+                  <h4 class="tools-title">Jenis Laporan</h4>
+                  <p class="tool-name">Harian, Bulanan, Export PDF/Excel</p>
+              </div>
+
+              <!-- Highlight 3: Mode Absensi Manual -->
+              <div class="feature-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="500">
+                  <i class="fas fa-user-check feature-icon"></i>
+                  <h3 class="feature-title">Mode Absensi Manual</h3>
+                  <p class="feature-description">
+                      Selain QR, pembina juga dapat mencatat absensi secara manual langsung dari dashboard admin jika siswa mengalami kendala teknis atau tidak membawa perangkat.
+                  </p>
+                  <h4 class="tools-title">Fleksibilitas</h4>
+                  <p class="tool-name">Scan QR & Input Manual</p>
+              </div>
+          </div>
+      </section>
+
+        <section class="reports-section">
+            <h3 class="section-title" data-aos="fade-up" data-aos-duration="800">Laporan Unggulan</h3>
+            <p class="section-description" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                Jelajahi laporan interaktif kami yang menampilkan kemudahan dalam manajemen kehadiran ekstrakurikuler melalui dashboard informatif, sistem scan QR modern, serta kemudahan impor dan ekspor data siswa.
             </p>
-            <div class="features-grid">
-                <!-- Highlight 1: Fitur Manajemen Data Siswa -->
-                <div class="feature-card">
-                    <i class="fas fa-users feature-icon"></i> <!-- Ikon untuk Manajemen Data Siswa -->
-                    <h3 class="feature-title">Fitur Manajemen Data Siswa</h3>
-                    <p class="feature-description">
-                        Sistem rapot ini memungkinkan guru dan staf sekolah untuk mengelola data siswa secara terpusat dan efisien. Dengan fitur pencarian dan filter yang canggih, pengelolaan data seperti nilai, absensi, dan informasi pribadi siswa menjadi lebih mudah dan cepat.
-                    </p>
-                    <h4 class="tools-title">Manajemen Data</h4>
-                    <p class="tool-name">Profil Siswa, Riwayat Akademik</p>
-                </div>
 
-                <!-- Highlight 2: Visualisasi Nilai Siswa -->
-                <div class="feature-card">
-                    <i class="fas fa-chart-bar feature-icon"></i> <!-- Ikon untuk Visualisasi Nilai -->
-                    <h3 class="feature-title">Visualisasi Nilai Siswa</h3>
-                    <p class="feature-description">
-                        Dengan grafik dan diagram yang mudah dibaca, orang tua dan guru dapat dengan cepat memahami perkembangan nilai siswa. Visualisasi ini memungkinkan untuk melihat tren prestasi dan mengidentifikasi area yang membutuhkan perhatian lebih.
-                    </p>
-                    <h4 class="tools-title">Jenis Visualisasi</h4>
-                    <p class="tool-name">Grafik Nilai, Analisis Perkembangan</p>
+            <!-- Laporan 1: Dashboard Informatif -->
+            <div class="report-card">
+                <div class="report-image" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="placeholder">
+                        <img src="./img/image-2.png" alt="Dashboard Informatif">
+                    </div>
                 </div>
-
-                <!-- Highlight 3: Import dan Export Excel untuk Guru -->
-                <div class="feature-card">
-                    <i class="fas fa-file-excel feature-icon"></i> <!-- Ikon untuk Import/Export Excel -->
-                    <h3 class="feature-title">Import dan Export Excel untuk Guru</h3>
-                    <p class="feature-description">
-                        Fitur import dan export Excel memudahkan guru dalam mengelola dan berbagi data nilai atau absensi siswa. Guru dapat dengan mudah mengimpor data hasil ujian dan mengekspor rapot dalam format Excel untuk distribusi atau keperluan arsip.
+                <div class="report-content" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <h3 class="report-title">Dashboard Informatif</h3>
+                    <p class="report-description">
+                        Dashboard memberikan informasi real-time terkait kehadiran siswa, aktivitas ekstrakurikuler, dan statistik mingguan. Pembina, admin, dan guru dapat dengan mudah memantau partisipasi siswa dan membuat keputusan berbasis data.
                     </p>
-                    <h4 class="tools-title">Format Data</h4>
-                    <p class="tool-name">Excel (.xls), CSV</p>
                 </div>
             </div>
 
+            <!-- Laporan 2: Absensi Menggunakan QR -->
+            <div class="report-card report-card-2">
+                <div class="report-content" data-aos="fade-right" data-aos-duration="1000">
+                    <h3 class="report-title">Absensi Menggunakan QR</h3>
+                    <p class="report-description">
+                        Laporan ini menjelaskan mekanisme absensi menggunakan QR Code yang cepat, akurat, dan praktis. Setiap siswa cukup melakukan scan untuk mencatat kehadiran secara otomatis, lengkap dengan waktu dan identitas yang tercatat langsung di sistem.
+                    </p>
+                </div>
+                <div class="report-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="">
+                        <img src="./img/image-1.png" class="img-mobile" alt="QR Code Attendance">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laporan 3: Import dan Export Excel -->
+            <div class="report-card">
+                <div class="report-image" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="placeholder">
+                        <img src="./img/image-3.png" alt="Import Export Excel">
+                    </div>
+                </div>
+                <div class="report-content" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <h3 class="report-title">Import & Export Excel</h3>
+                    <p class="report-description">
+                        Fitur ini memungkinkan guru dan admin untuk mengimpor data siswa secara massal dan mengekspor laporan kehadiran dalam format Excel/CSV. Sangat berguna untuk keperluan dokumentasi dan pelaporan ke pihak sekolah maupun orang tua.
+                    </p>
+                </div>
+            </div>
         </section>
-
-
-        <section class="reports-section">
-          <section class="reports-section">
-              <h3 class="section-title">Laporan Unggulan</h3>
-              <p class="section-description">
-                  Jelajahi laporan terperinci kami tentang manajemen data siswa, visualisasi nilai, dan pengelolaan data untuk guru, semuanya dirancang untuk mengoptimalkan pelacakan akademik dan analisis kinerja.
-              </p>
-
-              <!-- Laporan 1: Fitur Manajemen Data Siswa -->
-              <div class="report-card">
-                  <div class="report-image">
-                      <div class="placeholder">
-                        <img src="./img/image-1.png" alt="">
-                      </div>
-                  </div>
-                  <div class="report-content">
-                      <h3 class="report-title">Ringkasan Manajemen Data Siswa</h3>
-                      <p class="report-description">
-                          Laporan ini memberikan pandangan mendalam tentang bagaimana data siswa dikelola secara efisien dalam sistem. Laporan ini mencakup pelacakan absensi, nilai, rincian pribadi, dan riwayat akademik. Pelajari bagaimana manajemen data terpusat menyederhanakan tugas administratif dan memastikan integritas data.
-                      </p>
-
-                  </div>
-              </div>
-
-              <!-- Laporan 2: Visualisasi Nilai Siswa -->
-              <div class="report-card report-card-2">
-                  <div class="report-content">
-                      <h3 class="report-title">Visualisasi Kinerja Siswa</h3>
-                      <p class="report-description">
-                          Jelajahi representasi visual terperinci tentang kinerja siswa di berbagai mata pelajaran. Laporan ini mencakup grafik, diagram, dan metrik pertumbuhan yang dengan jelas menunjukkan area kekuatan dan perbaikan untuk setiap siswa.
-                      </p>
-
-                  </div>
-                  <div class="report-image">
-                      <div class="placeholder">
-                         <img src="./img/image-2.png" alt="">
-                      </div>
-                  </div>
-              </div>
-
-              <!-- Laporan 3: Import dan Export Excel untuk Guru -->
-              <div class="report-card">
-                  <div class="report-image">
-                      <div class="placeholder">
-                         <img src="./img/image-3.png" alt="">
-                      </div>
-                  </div>
-                  <div class="report-content">
-                      <h3 class="report-title">Import/Export Excel untuk Guru</h3>
-                      <p class="report-description">
-                          Laporan ini membahas fungsionalitas impor/ekspor yang mudah digunakan untuk guru, memungkinkan mereka untuk mengunggah nilai, absensi, dan data siswa lainnya dalam format Excel. Laporan ini juga menyoroti bagaimana guru dapat berbagi dan menyimpan laporan dengan efisien menggunakan format CSV dan Excel.
-                      </p>
-
-                  </div>
-              </div>
-
-          </section>
-        </section>
-
     </div>
 
-    <footer>
+    <footer data-aos="fade-up" data-aos-duration="800" data-aos-offset="0">
         <div class="container">
             <div class="footer-content">
                 <div>
@@ -637,7 +647,17 @@
         </div>
     </footer>
 
+    <!-- Add AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
     <script>
+        // Initialize AOS animation
+        AOS.init({
+            once: true, // whether animation should happen only once - while scrolling down
+            easing: 'ease-out-sine', // default easing for AOS animations
+            offset: 120, // offset (in px) from the original trigger point
+        });
+
         // Dark mode toggle functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
